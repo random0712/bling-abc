@@ -1,0 +1,7 @@
+<div class="high-stock">
+    <ul *ngIf="processedData.length" class="high-stock-list">
+        <li *ngFor="let data of processedData; let i = index">
+            <app-product-row [productData]="data" [position]="i + 1" highlightInfo="{{data.product?.produto?.estoqueAtual}} Unidades"></app-product-row>
+        </li>
+    </ul>
+</div>

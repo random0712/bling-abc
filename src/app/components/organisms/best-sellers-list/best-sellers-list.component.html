@@ -1,0 +1,7 @@
+<div class="best-sellers">
+    <ul *ngIf="analysisData.length" class="best-sellers-list">
+        <li *ngFor="let data of analysisData; let i = index">
+            <app-product-row *ngIf="i < 20" [productData]="data" [position]="i + 1" highlightInfo="{{data.quantity}} Unidades Vendidas"></app-product-row>
+        </li>
+    </ul>
+</div>

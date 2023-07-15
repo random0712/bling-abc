@@ -1,0 +1,10 @@
+{
+    "/bling_api": {
+      "target": "https://bling.com.br/",
+      "secure": false,
+      "pathRewrite": {
+        "^/bling_api": ""
+      },
+      "changeOrigin": true
+    }
+  }

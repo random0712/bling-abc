@@ -1,0 +1,1 @@
+export type CurveRank = 'A' | 'B' | 'C';

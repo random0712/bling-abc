@@ -1,0 +1,20 @@
+<div class="product-row">
+    <div class="basic-information">
+        <span class="position">{{position}}</span>
+        <img class="product-image" [src]="imageSource" alt="Foto do produto">
+        <div class="description">
+            <div class="product-name">
+                {{productData.product?.produto?.descricao}}
+            </div>
+            <div class="tags">
+                <span *ngIf="isOutOfStock" class="tag tag-red">Esgotado</span>
+                <span *ngIf="hasLowStock" class="tag tag-yellow">Estoque Baixo</span>
+                <span *ngIf="hasHighStock" class="tag tag-green">Boa quantidade no Estoque</span>
+                <span *ngIf="lowSales" class="tag tag-yellow">Sem vendas recentes</span>
+            </div>
+        </div>
+    </div>
+    <div class="highlight-info">
+        {{highlightInfo}}
+    </div>
+</div>

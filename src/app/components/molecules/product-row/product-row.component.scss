@@ -1,0 +1,58 @@
+@use '/src/styles.scss' as global;
+
+.product-row {
+    padding-left: 10px;
+    display: flex;
+    border-bottom: 1px solid #00000033;
+    height: 70px;
+    align-items: center;
+    gap: 10px;
+    .basic-information {
+        display: flex;
+        align-items: center;
+        width: 85%;
+
+        .position {
+            font-weight: 700;
+        }
+
+        .product-name {
+            font-size: 0.8rem;
+        }
+
+        .product-image {
+            height: 50px;
+            border-radius: 50%;
+            border: 2px solid rgba(128, 128, 128, 0.63);
+            margin: 0 10px;
+        }
+
+        .tags {
+            display: flex;
+            gap: 5px;
+            .tag {
+                padding: 1px 3px;
+                border-radius: 5px;
+                color: global.$white;
+                font-weight: 500;
+                font-size: 0.8rem;
+                height: 18px;
+                &.tag-red {
+                    background-color: global.$red;
+                }
+
+                &.tag-yellow {
+                    background-color: global.$yellow;
+                }
+
+                &.tag-green {
+                    background-color: global.$green;
+                }
+            }
+        }
+    }
+
+    .highlight-info {
+        width: 15%;
+    }
+}

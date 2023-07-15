@@ -8,5 +8,9 @@ if (environment.production) {
   enableProdMode();
 }
 
+if(!environment.production) {
+  console.warn("DEV MODE: Dont use this configuration in production environment")
+}
+
 platformBrowserDynamic().bootstrapModule(AppModule)
   .catch(err => console.error(err));
