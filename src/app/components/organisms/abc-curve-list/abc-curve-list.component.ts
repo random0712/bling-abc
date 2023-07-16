@@ -21,7 +21,10 @@ export class AbcCurveListComponent implements OnInit, AfterViewInit {
 
   constructor() { }
 
-  @Input() analysisData: IItemData[] = [];
+  @Input() set analysisData(data: IItemData[]){
+    this.generateAbcCurve(data);
+  };
+
   @Input() totalProductsSales: number;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -34,9 +37,9 @@ export class AbcCurveListComponent implements OnInit, AfterViewInit {
   dataSource: MatTableDataSource<IAbcCurveListRow>;
 
   ngOnInit(): void {
-    const rows = this.generateTableValues(this.analysisData, this.totalProductsSales);
-    this.dataSource = new MatTableDataSource(rows);
   }
+
+  
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
@@ -83,4 +86,9 @@ export class AbcCurveListComponent implements OnInit, AfterViewInit {
     return 'C';
   }
 
+
+  private generateAbcCurve(analysisData: IItemData[] = []) {
+    const rows = this.generateTableValues(analysisData, this.totalProductsSales);
+    this.dataSource = new MatTableDataSource(rows);
+  }
 }

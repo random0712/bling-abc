@@ -1,0 +1,15 @@
+.medium-column-space {
+    grid-column: span 2;
+}
+
+.large-column-space {
+    grid-column: span 3;
+}
+
+.medium-row-space {
+    grid-row: span 2;
+}
+
+.large-row-space {
+    grid-row: span 3;
+}

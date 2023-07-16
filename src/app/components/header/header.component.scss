@@ -3,15 +3,39 @@
 header {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     position: fixed;
     width: 100%;
     z-index: 2;
     top: 0;
-
+    height: 70px;
     font-family: global.$font-monospace;
     background-color: global.$eerie-black;
     color: #FFFFFF;
+
+    .header-left {
+        margin-left: 5px;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        font-weight: 700;
+        font-size: 1.3rem;
+    }
+
+    .header-right {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #000;
+        ::ng-deep .mat-form-field-appearance-fill  .mat-form-field-wrapper {
+
+            .mat-form-field-flex {
+                background-color: white;
+                border-radius: 5px;
+            }
+        }
+    }
     img {
-        height: 70px;
+        height: 50px;
     }
 }

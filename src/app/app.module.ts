@@ -21,8 +21,15 @@ import { SpareListComponent } from './components/organisms/spare-list/spare-list
 import { AbcCurveListComponent } from './components/organisms/abc-curve-list/abc-curve-list.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
-import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatFormFieldModule, MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HighchartsChartModule } from 'highcharts-angular';
+import { SalesByBrandComponent } from './components/organisms/sales-by-brand/sales-by-brand.component';
+import { StockByBrandComponent } from './components/organisms/stock-by-brand/stock-by-brand.component';
+import { SalesByPlatformComponent } from './components/organisms/sales-by-plataform/sales-by-plataform.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +42,10 @@ import { MatInputModule } from '@angular/material/input';
     BestSellersListComponent,
     HighStockListComponent,
     SpareListComponent,
-    AbcCurveListComponent
+    AbcCurveListComponent,
+    SalesByBrandComponent,
+    StockByBrandComponent,
+    SalesByPlatformComponent
   ],
   imports: [
     BrowserModule,
@@ -51,10 +61,18 @@ import { MatInputModule } from '@angular/material/input';
     MatSortModule,
     MatPaginatorModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatFormFieldModule, 
+    MatDatepickerModule, 
+    MatNativeDateModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HighchartsChartModule
   ],
   providers: [
-    {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}}
+    {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}},
+    {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'outline'}},
+    {provide: MAT_DATE_LOCALE, useValue: 'pt-BR' }
   ],
   bootstrap: [AppComponent]
 })

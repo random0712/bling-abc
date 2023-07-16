@@ -1,4 +1,17 @@
 <header>
-    <img src="../../../assets/Marca d`agua invertida sem texto.png" alt="">
-    Curva ABC
+    <div class="header-left">
+        <img src="../../../assets/Logo Branco.png" alt="Logo">
+        Curva ABC
+    </div>
+    <div class="header-right">
+        <mat-form-field appearance="fill">
+            <mat-label>Selecione o intervalo</mat-label>
+            <mat-date-range-input [formGroup]="range" [rangePicker]="picker">
+                <input matStartDate formControlName="start" placeholder="Start date">
+                <input matEndDate formControlName="end" placeholder="End date">
+            </mat-date-range-input>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-date-range-picker (closed)="submitNewRange()" #picker></mat-date-range-picker>
+        </mat-form-field>
+    </div>
 </header>

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import * as dayjs from 'dayjs';
 import { expand, of, retry } from 'rxjs';
+import { IOrderRange } from './components/header/header.model';
 import { LoadingDialogComponent } from './components/molecules/loading-dialog/loading-dialog.component';
 import { IOrder, IOrderItem } from './services/bling/order/order.model';
 import { OrderService } from './services/bling/order/order.service';
@@ -41,15 +42,16 @@ export class AppComponent {
     this.situationService.getSituations('Vendas').subscribe(situationsResponse => {
       this.orderSituations = situationsResponse.retorno.situacoes
     })
-
-    this.loadOrders();
   } 
 
-  private loadOrders() {
+  public onNewRange(newRange: IOrderRange) {
+    this.loadOrders(newRange)
+  }
+
+  private loadOrders(range: IOrderRange) {
     this.dialogRef = this.dialog.open(LoadingDialogComponent, {width: '300px', height: '300px'});
-    const emissionDate = this.calculateOrdersRange();
     const filters = {
-      emissionDate
+      emissionDate: range
     }
 
     let ordersBuffer: IOrder[] = [];
@@ -111,15 +113,6 @@ export class AppComponent {
         successFn();
       }
     });
-  }
-
-  private calculateOrdersRange(): {start: string, end: string} {
-    const now = dayjs();
-    const monthsBefore = now.subtract(1, 'month').format('DD/MM/YYYY');
-    return {
-      start: monthsBefore,
-      end: now.format("DD/MM/YYYY")
-    }
   }
 
   associate() {

@@ -1,6 +1,15 @@
 <div class="app">
-  <app-header></app-header>
+  <app-header (newRange)="onNewRange($event)"></app-header>
   <app-widget-grid *ngIf="!isLoadingOrders">
+    <app-widget-grid-item headerText="Pedidos por Plataforma" headerColor="#FF9505">
+      <app-sales-by-platform [orders]="orders"></app-sales-by-platform>
+    </app-widget-grid-item>
+    <app-widget-grid-item headerText="Unidades vendidas por Marca" headerColor="#493843">
+      <app-sales-by-brand [analysisData]="analysisData"></app-sales-by-brand>
+    </app-widget-grid-item>
+    <app-widget-grid-item headerText="Estoque por Marca" headerColor="#81C14B">
+      <app-stock-by-brand [analysisData]="analysisData"></app-stock-by-brand>
+    </app-widget-grid-item>
     <app-widget-grid-item headerText="Top 20 Vendas" headerColor="#36827f">
       <app-best-sellers-list [analysisData]="analysisData" [totalProductsSales]="totalProductsSales"></app-best-sellers-list>
     </app-widget-grid-item>
@@ -11,7 +20,7 @@
       <app-high-stock-list [analysisData]="analysisData"></app-high-stock-list>
     </app-widget-grid-item>
     <app-widget-grid-item class="large-column-space" headerText="Curva ABC" headerColor="#731dd8">
-      <app-abc-curve-list [analysisData]="analysisData" [totalProductsSales]="totalProductsSales"></app-abc-curve-list>
+      <app-abc-curve-list [totalProductsSales]="totalProductsSales" [analysisData]="analysisData"></app-abc-curve-list>
     </app-widget-grid-item>
   </app-widget-grid>
 </div>
