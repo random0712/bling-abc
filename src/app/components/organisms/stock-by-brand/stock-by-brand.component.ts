@@ -82,7 +82,7 @@ export class StockByBrandComponent implements OnInit {
       series: [
           {
               type: 'pie',
-              name: "Vendas",
+              name: "Quantidade",
               data: result
           }
       ]
